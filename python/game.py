@@ -41,7 +41,8 @@ player_speed = 10
 obstacle_size = 50
 obstacle_x = random.randint(0, screen_width - obstacle_size)
 obstacle_y = -obstacle_size
-obstacle_speed = 10
+obstacle_speed = 8
+max_speed = 20
 
 # Klok
 clock = pygame.time.Clock()
@@ -69,7 +70,6 @@ def game_loop():
 
     running = True
     score = 0
-    max_speed = 10
 
     while running:
         for event in pygame.event.get():
@@ -91,7 +91,7 @@ def game_loop():
             obstacle_x = random.randint(0, screen_width - obstacle_size)
             score += 1
             if obstacle_speed < max_speed:
-                obstacle_speed += 0.1
+                obstacle_speed += 2
 
         # Botsdetectie
         if obstacle_y + obstacle_size > player_y:
